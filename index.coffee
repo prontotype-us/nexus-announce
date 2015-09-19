@@ -1,8 +1,8 @@
 request = require 'request'
 
-announce = (key, data) ->
+announce = (key, data, type = 'announce') ->
     [project, kind] = key.split(':')
-    type = 'announce'
+    kind |= 'unknown'
     event = {type, kind, project, data}
     request.post {url: 'http://drsproboto.com:5010/events/nexus', json: event}
 
