@@ -1,9 +1,8 @@
-request = require 'request'
+publish = require 'nexus-publish'
 
-announce = (key, data, type = 'announce') ->
+announce = (key, data) ->
     [project, kind] = key.split(':')
-    kind |= 'unknown'
-    event = {type, kind, project, data}
-    request.post {url: 'http://drsproboto.com:5010/events/nexus', json: event}
+    event = {type: 'announce', kind, project, data}
+    publish event
 
 module.exports = announce
