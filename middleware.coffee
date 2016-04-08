@@ -8,5 +8,6 @@ module.exports = (project_name) -> (req, res, next) ->
             page: req.path[1..] || 'home'
             ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress
             ua: req.get('User-Agent')
+            session_id: req.session?.id
 
     next()
