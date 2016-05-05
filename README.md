@@ -1,8 +1,8 @@
 # nexus-announce
 
 ```coffee
-announce = require 'nexus-announce'
+announce = require('nexus-announce')({api_key: "[api key]"})
 
 # a wild user appears...
-announce 'debatable:signup', {user}
+announce {type: 'signup', project: 'debatable', data: {user}}
 ```
