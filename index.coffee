@@ -1,11 +1,6 @@
 request = require 'request'
 
-publish = (event) ->
-    request.post {url: 'http://webhooks.nexus.prontotype.us/events', json: event}
-
-announce = (key, data) ->
-    [project, kind] = key.split(':')
-    event = {type: 'announce', kind, project, data}
-    publish event
+announce = ({api_key}) -> (event) ->
+    request.post {url: 'http://localhost:5010/events', json: event, headers: {'api-key': api_key}}
 
 module.exports = announce
