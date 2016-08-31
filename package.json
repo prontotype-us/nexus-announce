@@ -1,0 +1,15 @@
+{
+    "name": "nexus-announce",
+    "version": "0.1.0",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/prontotype-us/nexus-announce"
+    },
+    "main": "lib/index.js",
+    "scripts": {
+        "build": "cjsx --bare -o lib -c src"
+    },
+    "dependencies": {
+        "request": "2.x.x"
+    }
+}
