@@ -1,6 +1,6 @@
 announce = require 'nexus-announce'
 
-# Announces as a 'visit' or config.type whenever someone visits
+# Announces as a 'page-view' or config.type whenever someone visits
 # a route that does not end with a file extension
 
 isStatic = (path) -> path.match /\.\w+$/
@@ -8,7 +8,7 @@ isStatic = (path) -> path.match /\.\w+$/
 module.exports = (config) -> (req, res, next) ->
     if req.method.toLowerCase() == 'get' and !isStatic(req.path)
         announce(config) {
-            type: config.type or 'visit'
+            type: config.type or 'page-view'
             project: config.project
             data: {
                 page: req.path[1..] || 'home'
