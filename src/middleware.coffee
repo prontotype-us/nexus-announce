@@ -10,6 +10,7 @@ module.exports = (config) -> (req, res, next) ->
         announce(config) {
             type: config.type or 'page-visit'
             project: config.project
+            environment: config.environment or 'local'
             data: {
                 page: req.path[1..] || 'home'
                 ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress
