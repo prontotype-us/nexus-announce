@@ -8,7 +8,7 @@ isStatic = (path) -> path.match /\.\w+$/
 module.exports = (config) -> (req, res, next) ->
     if req.method.toLowerCase() == 'get' and !isStatic(req.path)
         announce(config) {
-            type: config.type or 'page-visit'
+            type: config.type or 'page-view'
             project: config.project
             environment: config.environment or 'local'
             data: {
