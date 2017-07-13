@@ -4,12 +4,12 @@ announce = (config={}) ->
     {api_key, disabled, base_url} = config
     base_url ||= 'http://webhooks.nexus.prontotype.us'
 
+    if disabled
+        return ->
+            console.log "[announce] Not announcing"
+
     if !api_key?.length
         throw new Error "[nexus-announce] No API key"
-
-    if disabled
-        return (event) ->
-            console.log "[announce] Not announcing"
 
     return (event) ->
         request.post {
